@@ -82,6 +82,11 @@
       text-decoration: none;
       color: inherit;
     }
+
+    .margin-y {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
   </style>
 
   <body class="container-fluid">
@@ -91,10 +96,13 @@
     <div class="container">
       <hr />
     </div>
-    <section class="container">Test</section>
+    <section class="container blogs"></section>
     <footer class="container">
       <hr />
       <div class="d-flex justify-content-start flex-direction-row">
+        <a target="_blank" href="https://satyamsovan123.github.io/" class="link"
+          >Home</a
+        >
         <a
           target="_blank"
           href="https://www.linkedin.com/in/satyamsovan123"
@@ -113,31 +121,39 @@
           class="link"
           >GitHub</a
         >
-        <a target="_blank" href="https://satyamsovan.com/blog" class="link"
-          >Blog</a
-        >
       </div>
       <p class="copyright">&copy;</p>
     </footer>
   </body>
 
   <script>
-    console.log(`%cHello there!\nWelcome to my website!`, "color:pink;");
+    console.log(`%cHello there!\nWelcome to my website!`, "color:black;");
     document.getElementsByClassName(
       "copyright"
     )[0].innerHTML = `&copy; ${new Date().getFullYear()} Satyam Sovan Mishra`;
 
-    const currentDate = new Date();
-    const joiningDate = new Date(2021, 3, 26);
-    const { years, months } = {
-      years: currentDate.getFullYear() - joiningDate.getFullYear(),
-      months: currentDate.getMonth() - joiningDate.getMonth(),
-    };
+    const blogs = [
+      {
+        title: "T1",
+        content: "C1",
+      },
+      {
+        title: "T2",
+        content: "C2",
+      },
+      {
+        title: "T3",
+        content: "C3",
+      },
+    ];
 
-    document.getElementsByClassName(
-      "work-experience"
-    )[0].innerHTML = `"workExperience": "${years} years${
-      months > 0 ? ` ${months} months` : ""
-    }",`;
+    blogs.forEach((blog) => {
+      document.getElementsByClassName("blogs")[0].innerHTML += `
+        <div class='margin-y'>
+          <h2>${blog.title}</h2>
+          <p>${blog.content}</p>
+        </div>
+      `;
+    });
   </script>
 </html>
